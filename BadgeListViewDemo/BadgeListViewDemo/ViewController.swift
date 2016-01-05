@@ -15,7 +15,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let badge: BadgeView = BadgeView(frame: CGRectZero)
         badge.image = UIImage(named: "dueDate_icon")
-        print("image badge\(badge.image)")
         badge.backgroundImage = UIImage(named: "dueDate_background")
         badge.text = "16 Oct"
         badge.textColor = UIColor.whiteColor()
