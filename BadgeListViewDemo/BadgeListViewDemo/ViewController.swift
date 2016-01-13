@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         let cbadge: BadgeView = BadgeView(frame: CGRectZero)
         cbadge.image = UIImage(named: "subtask_icon")
         cbadge.imageWidth = 12.0
-        cbadge.text = "2/3"
+//        cbadge.imageWidth = bbadge.frame.size.height - cbadge.titlePaddingY
         cbadge.textColor = UIColor.grayColor()
         cbadge.sizeToFit()
         
@@ -39,8 +39,8 @@ class ViewController: UIViewController {
         let badgeListView: BadgeListView = BadgeListView(frame: frame)
         view.addSubview(badgeListView)
         badgeListView.addBadge(badge)
-        badgeListView.addBadge(bbadge)
         badgeListView.addBadge(cbadge)
+        badgeListView.addBadge(bbadge)
         badgeListView.layer.borderWidth = 1.0
         badgeListView.layer.borderColor = UIColor.grayColor().CGColor
         

@@ -91,11 +91,16 @@ public class BadgeView: UIView {
     override public func intrinsicContentSize() -> CGSize {
         var size = titleLabel.text?.sizeWithAttributes([NSFontAttributeName: textFont]) ?? CGSizeZero
         
-        size.height += 2 * titlePaddingY
-        if let _ = image {
-            size.width += imagePaddingX + imageWidth + 2 * titlePaddingX
-        } else {
+        if !CGSizeEqualToSize(size, CGSizeZero) {
             size.width += 2 * titlePaddingX
+        } else {
+            size.width += imagePaddingX
+            size.height += imageWidth
+        }
+        size.height += 2 * titlePaddingY
+        
+        if let _ = image {
+            size.width += imagePaddingX + imageWidth
         }
         
         return size
@@ -115,10 +120,11 @@ public class BadgeView: UIView {
     }
     
     func resizeImageView() {
+        let y: CGFloat = titleLabel.text != nil ? (titleLabel.center.y - imageWidth/2) : titlePaddingY
         if let _ = image {
-            imageView.frame = CGRect(x: imagePaddingX, y: titleLabel.center.y - imageWidth/2, width: imageWidth, height: imageWidth)
+            imageView.frame = CGRect(x: imagePaddingX, y: y, width: imageWidth, height: imageWidth)
         } else {
-             imageView.frame = CGRect(x: imagePaddingX, y: titleLabel.center.y - imageWidth/2, width: 0, height: 0)
+            imageView.frame = CGRect(x: imagePaddingX, y: y, width: 0, height: 0)
         }
     }
     
