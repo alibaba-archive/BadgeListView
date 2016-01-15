@@ -58,6 +58,8 @@ public class BadgeListView: UIView {
         }
         badgeViews.removeAll()
         rowContainerViews.removeAll()
+        currentRow = 0
+        currentRowWidth = 0.0
         self.frame.size = intrinsicContentSize()
     }
     

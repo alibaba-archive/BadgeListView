@@ -12,8 +12,8 @@
 		EB0E623A1C2923C5006F08D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0E62381C2923C5006F08D3 /* Main.storyboard */; };
 		EB0E623C1C2923C5006F08D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0E623B1C2923C5006F08D3 /* Assets.xcassets */; };
 		EB0E623F1C2923C5006F08D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0E623D1C2923C5006F08D3 /* LaunchScreen.storyboard */; };
-		EB9B046D1C292B6100DD3B85 /* BadgeListView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9B046C1C292B6100DD3B85 /* BadgeListView.framework */; };
-		EB9B046E1C292B6100DD3B85 /* BadgeListView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB9B046C1C292B6100DD3B85 /* BadgeListView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EB1EBB221C47E46100A8B36C /* BadgeListView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1EBB211C47E46100A8B36C /* BadgeListView.framework */; };
+		EB1EBB231C47E46100A8B36C /* BadgeListView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB1EBB211C47E46100A8B36C /* BadgeListView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EB9B046E1C292B6100DD3B85 /* BadgeListView.framework in Embed Frameworks */,
+				EB1EBB231C47E46100A8B36C /* BadgeListView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,7 +38,7 @@
 		EB0E623B1C2923C5006F08D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0E623E1C2923C5006F08D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB0E62401C2923C5006F08D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB9B046C1C292B6100DD3B85 /* BadgeListView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = BadgeListView.framework; path = "/Users/StormXX/Library/Developer/Xcode/DerivedData/BadgeListView-dkgdpgemtvnfvngkngwfvukdwnbf/Build/Products/Debug-iphoneos/BadgeListView.framework"; sourceTree = "<absolute>"; };
+		EB1EBB211C47E46100A8B36C /* BadgeListView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = BadgeListView.framework; path = "/Users/StormXX/Library/Developer/Xcode/DerivedData/BadgeListView-dkgdpgemtvnfvngkngwfvukdwnbf/Build/Products/Debug-iphoneos/BadgeListView.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB9B046D1C292B6100DD3B85 /* BadgeListView.framework in Frameworks */,
+				EB1EBB221C47E46100A8B36C /* BadgeListView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +56,7 @@
 		EB0E62281C2923C5006F08D3 = {
 			isa = PBXGroup;
 			children = (
-				EB9B046C1C292B6100DD3B85 /* BadgeListView.framework */,
+				EB1EBB211C47E46100A8B36C /* BadgeListView.framework */,
 				EB0E62331C2923C5006F08D3 /* BadgeListViewDemo */,
 				EB0E62321C2923C5006F08D3 /* Products */,
 			);

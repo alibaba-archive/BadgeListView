@@ -10,6 +10,8 @@ import UIKit
 import BadgeListView
 
 class ViewController: UIViewController {
+    
+    var badgeListView: BadgeListView = BadgeListView(frame: CGRect(x: 100, y: 100, width: 180, height: 30))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +37,16 @@ class ViewController: UIViewController {
         cbadge.textColor = UIColor.grayColor()
         cbadge.sizeToFit()
         
-        let frame = CGRect(x: 100, y: 100, width: 180, height: 30)
-        let badgeListView: BadgeListView = BadgeListView(frame: frame)
         view.addSubview(badgeListView)
         badgeListView.addBadge(badge)
         badgeListView.addBadge(cbadge)
         badgeListView.addBadge(bbadge)
         badgeListView.layer.borderWidth = 1.0
         badgeListView.layer.borderColor = UIColor.grayColor().CGColor
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
