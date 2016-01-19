@@ -11,7 +11,7 @@ import BadgeListView
 
 class ViewController: UIViewController {
     
-    var badgeListView: BadgeListView = BadgeListView(frame: CGRect(x: 100, y: 100, width: 180, height: 30))
+    var badgeListView: BadgeListView = BadgeListView(frame: CGRect(x: 100, y: 100, width: 180, height: 200))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         let cbadge: BadgeView = BadgeView(frame: CGRectZero)
         cbadge.image = UIImage(named: "subtask_icon")
         cbadge.imageWidth = 12.0
-//        cbadge.imageWidth = bbadge.frame.size.height - cbadge.titlePaddingY
+        cbadge.text = "2/15"
         cbadge.textColor = UIColor.grayColor()
         cbadge.sizeToFit()
         

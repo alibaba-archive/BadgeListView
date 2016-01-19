@@ -90,12 +90,14 @@ public class BadgeView: UIView {
 
     override public func intrinsicContentSize() -> CGSize {
         var size = titleLabel.text?.sizeWithAttributes([NSFontAttributeName: textFont]) ?? CGSizeZero
+        size = CGSize(width: round(size.width), height: round(size.height))
         
         if !CGSizeEqualToSize(size, CGSizeZero) {
             size.width += 2 * titlePaddingX
         } else {
+            let height = round("t".sizeWithAttributes([NSFontAttributeName: textFont]).height)
             size.width += imagePaddingX
-            size.height += imageWidth
+            size.height += height
         }
         size.height += 2 * titlePaddingY
         
@@ -120,7 +122,7 @@ public class BadgeView: UIView {
     }
     
     func resizeImageView() {
-        let y: CGFloat = titleLabel.text != nil ? (titleLabel.center.y - imageWidth/2) : titlePaddingY
+        let y: CGFloat = titleLabel.text != nil ? (titleLabel.center.y - imageWidth/2) : (self.height/2 - imageWidth/2)
         if let _ = image {
             imageView.frame = CGRect(x: imagePaddingX, y: y, width: imageWidth, height: imageWidth)
         } else {
@@ -130,12 +132,11 @@ public class BadgeView: UIView {
     
     public override func sizeToFit() {
         super.sizeToFit()
+        self.frame.size = intrinsicContentSize()
         resizeTitleLabel()
         resizeImageView()
-        self.frame.size = intrinsicContentSize()
         resizeBackgroundImageView()
     }
-    
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

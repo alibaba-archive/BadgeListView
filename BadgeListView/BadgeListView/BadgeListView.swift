@@ -16,7 +16,7 @@ public class BadgeListView: UIView {
     var currentRowWidth: CGFloat = 0
     
     var badgeSpacing: CGFloat = 5.0
-    var rowSpacing: CGFloat = 2.0
+    var rowSpacing: CGFloat = 5.0
     
     
     override public init(frame: CGRect) {
