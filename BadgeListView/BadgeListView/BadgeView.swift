@@ -81,6 +81,20 @@ public class BadgeView: UIView {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
+        commonInit()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        commonInit()
+    }
+    
+    private func commonInit() {
         self.backgroundColor = UIColor.clearColor()
         addSubview(backgroundImageView)
         addSubview(imageView)
@@ -137,9 +151,6 @@ public class BadgeView: UIView {
         resizeImageView()
         resizeBackgroundImageView()
     }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
     
 }

@@ -23,6 +23,13 @@ public class BadgeListView: UIView {
         super.init(frame: frame)
     }
     
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
     public func addBadge(badge: BadgeView) {
         badgeViews.append(badge)
@@ -70,8 +77,5 @@ public class BadgeListView: UIView {
         
     }
 
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
 }
