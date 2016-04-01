@@ -11,6 +11,7 @@
 		EB9B04681C29249600DD3B85 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B04671C29249600DD3B85 /* BadgeView.swift */; };
 		EB9B046A1C29293A00DD3B85 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B04691C29293A00DD3B85 /* UIViewExtension.swift */; };
 		EB9B04711C29413400DD3B85 /* BadgeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B04701C29413400DD3B85 /* BadgeListView.swift */; };
+		EBBD6C751C9D24D80021D061 /* TagBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBD6C741C9D24D80021D061 /* TagBadgeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		EB9B04671C29249600DD3B85 /* BadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		EB9B04691C29293A00DD3B85 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		EB9B04701C29413400DD3B85 /* BadgeListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeListView.swift; sourceTree = "<group>"; };
+		EBBD6C741C9D24D80021D061 /* TagBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagBadgeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				EB9B04671C29249600DD3B85 /* BadgeView.swift */,
 				EB9B04701C29413400DD3B85 /* BadgeListView.swift */,
 				EB0E62221C2923B2006F08D3 /* Info.plist */,
+				EBBD6C741C9D24D80021D061 /* TagBadgeView.swift */,
 			);
 			path = BadgeListView;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				EB9B046A1C29293A00DD3B85 /* UIViewExtension.swift in Sources */,
 				EB9B04681C29249600DD3B85 /* BadgeView.swift in Sources */,
 				EB9B04711C29413400DD3B85 /* BadgeListView.swift in Sources */,
+				EBBD6C751C9D24D80021D061 /* TagBadgeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,23 +12,12 @@ public class BadgeView: UIView {
     
     public var imageWidth: CGFloat = 10.0
     
-    public var titlePaddingX: CGFloat = 5 {
-        didSet{
-            resizeTitleLabel()
-        }
-    }
-    
-    public var titlePaddingY: CGFloat = 2 {
-        didSet{
-            resizeTitleLabel()
-        }
-    }
-    
-    public var imagePaddingX: CGFloat = 5 {
-        didSet{
-            resizeImageView()
-        }
-    }
+    public var titleLeadingSpacing: CGFloat = 5
+    public var titleTrailingSpacing: CGFloat = 5
+    public var titleTopSpacing: CGFloat = 2
+    public var titleBottomSpacing: CGFloat = 2
+    public var imageLeadingSpacing: CGFloat = 5
+    public var imageTrailingSpacing: CGFloat = 5
     
     public var textFont: UIFont = UIFont.systemFontOfSize(12.0) {
         didSet {
@@ -51,7 +40,6 @@ public class BadgeView: UIView {
     public var image: UIImage? {
         didSet {
             imageView.image = image
-            resizeImageView()
         }
     }
     
@@ -63,6 +51,7 @@ public class BadgeView: UIView {
     
     private lazy var imageView: UIImageView = {
         let imageView: UIImageView = UIImageView(frame: CGRectZero)
+        imageView.contentMode = .ScaleAspectFit
         return imageView
     }()
     
@@ -103,20 +92,18 @@ public class BadgeView: UIView {
     }
 
     override public func intrinsicContentSize() -> CGSize {
-        var size = titleLabel.text?.sizeWithAttributes([NSFontAttributeName: textFont]) ?? CGSizeZero
+        var size = titleLabel.text?.sizeWithAttributes([NSFontAttributeName: textFont]) ?? CGSize.zero
         size = CGSize(width: round(size.width), height: round(size.height))
         
-        if !CGSizeEqualToSize(size, CGSizeZero) {
-            size.width += 2 * titlePaddingX
+        if !CGSizeEqualToSize(size, CGSize.zero) {
+            size.width += titleLeadingSpacing + titleTrailingSpacing
         } else {
             let height = round("t".sizeWithAttributes([NSFontAttributeName: textFont]).height)
-            size.width += imagePaddingX
             size.height += height
         }
-        size.height += 2 * titlePaddingY
-        
+        size.height += titleTopSpacing + titleBottomSpacing
         if let _ = image {
-            size.width += imagePaddingX + imageWidth
+            size.width += imageLeadingSpacing + imageWidth + imageTrailingSpacing
         }
         
         return size
@@ -124,9 +111,9 @@ public class BadgeView: UIView {
     
     func resizeTitleLabel() {
         if let _ = image {
-            titleLabel.frame = CGRect(x: imagePaddingX + imageWidth + titlePaddingX, y: titlePaddingY, width: 0, height: 0)
+            titleLabel.frame = CGRect(x: imageLeadingSpacing + imageWidth + imageTrailingSpacing + titleLeadingSpacing, y: titleTopSpacing, width: 0, height: 0)
         } else {
-            titleLabel.frame = CGRect(x: titlePaddingX, y: titlePaddingY, width: 0, height: 0)
+            titleLabel.frame = CGRect(x: titleLeadingSpacing, y: titleTopSpacing, width: 0, height: 0)
         }
         titleLabel.sizeToFit()
     }
@@ -138,9 +125,9 @@ public class BadgeView: UIView {
     func resizeImageView() {
         let y: CGFloat = titleLabel.text != nil ? (titleLabel.center.y - imageWidth/2) : (self.height/2 - imageWidth/2)
         if let _ = image {
-            imageView.frame = CGRect(x: imagePaddingX, y: y, width: imageWidth, height: imageWidth)
+            imageView.frame = CGRect(x: imageLeadingSpacing, y: y, width: imageWidth, height: imageWidth)
         } else {
-            imageView.frame = CGRect(x: imagePaddingX, y: y, width: 0, height: 0)
+            imageView.frame = CGRect(x: imageLeadingSpacing, y: y, width: 0, height: 0)
         }
     }
     
@@ -151,6 +138,4 @@ public class BadgeView: UIView {
         resizeImageView()
         resizeBackgroundImageView()
     }
-
-    
 }

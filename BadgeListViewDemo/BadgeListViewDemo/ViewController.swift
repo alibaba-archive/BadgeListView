@@ -15,20 +15,34 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        badgeListView.edgeInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         let badge: BadgeView = BadgeView(frame: CGRectZero)
+        badge.imageTrailingSpacing = 0
+        badge.titleTrailingSpacing = 10
         badge.image = UIImage(named: "dueDate_icon")
         badge.backgroundImage = UIImage(named: "dueDate_background")
         badge.text = "16 Oct"
         badge.textColor = UIColor.whiteColor()
         badge.sizeToFit()
         
-        let bbadge: BadgeView = BadgeView(frame: CGRectZero)
-        bbadge.image = UIImage(named: "tag_icon")
-        bbadge.backgroundImage = UIImage(named: "tag_background")
-        bbadge.text = "交互设计"
-        bbadge.textColor = UIColor.grayColor()
-        bbadge.imageWidth = 5.0
-        bbadge.sizeToFit()
+//        let bbadge: BadgeView = BadgeView(frame: CGRectZero)
+//        bbadge.image = UIImage(named: "tag_icon")
+//        bbadge.backgroundImage = UIImage(named: "tag_background")
+//        bbadge.text = "交互设计"
+//        bbadge.textColor = UIColor.grayColor()
+//        bbadge.imageWidth = 5.0
+//        bbadge.sizeToFit()
+        
+        let tag1 = Tag(name: "交互设计", color: "green")
+        let tag2 = Tag(name: "iOS", color: "red")
+        
+        let tag1Badge: TagBadgeView = TagBadgeView(frame: CGRect.zero)
+        tag1Badge.heyTag = tag1
+        tag1Badge.sizeToFit()
+        
+        let tag2Badge: TagBadgeView = TagBadgeView(frame: CGRect.zero)
+        tag2Badge.heyTag = tag2
+        tag2Badge.sizeToFit()
         
         let cbadge: BadgeView = BadgeView(frame: CGRectZero)
         cbadge.image = UIImage(named: "subtask_icon")
@@ -40,7 +54,9 @@ class ViewController: UIViewController {
         view.addSubview(badgeListView)
         badgeListView.addBadge(badge)
         badgeListView.addBadge(cbadge)
-        badgeListView.addBadge(bbadge)
+//        badgeListView.addBadge(bbadge)
+        badgeListView.addBadge(tag1Badge)
+        badgeListView.addBadge(tag2Badge)
         badgeListView.layer.borderWidth = 1.0
         badgeListView.layer.borderColor = UIColor.grayColor().CGColor
     }

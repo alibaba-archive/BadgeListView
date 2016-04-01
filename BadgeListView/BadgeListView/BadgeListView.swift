@@ -10,14 +10,14 @@ import UIKit
 
 public class BadgeListView: UIView {
     
-    var rowContainerViews: [UIView] = []
-    var badgeViews: [BadgeView] = []
-    var currentRow: Int = 0
-    var currentRowWidth: CGFloat = 0
+    private var rowContainerViews: [UIView] = []
+    private var badgeViews: [BadgeView] = []
+    private var currentRow: Int = 0
+    private var currentRowWidth: CGFloat = 0
     
-    var badgeSpacing: CGFloat = 5.0
-    var rowSpacing: CGFloat = 5.0
-    
+    public var badgeSpacing: CGFloat = 5.0
+    public var rowSpacing: CGFloat = 5.0
+    public var edgeInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,7 +41,7 @@ public class BadgeListView: UIView {
             currentRowContainerView = UIView()
             let originYOfCurrentRowContainerView = rowContainerViews.flatMap({ view in view.height}).reduce(0, combine: {$0 + $1})
             badge.frame.origin = CGPoint(x: 0, y: 0)
-            currentRowContainerView.frame = CGRect(x: 0, y: originYOfCurrentRowContainerView + (currentRow == 1 ? 0 : rowSpacing), width: currentRowWidth, height: badge.height)
+            currentRowContainerView.frame = CGRect(x: edgeInset.left, y: originYOfCurrentRowContainerView + (currentRow == 1 ? edgeInset.top : rowSpacing + edgeInset.top), width: currentRowWidth - (edgeInset.left + edgeInset.right), height: badge.height)
             currentRowContainerView.addSubview(badge)
             rowContainerViews.append(currentRowContainerView)
             addSubview(currentRowContainerView)
@@ -73,9 +73,6 @@ public class BadgeListView: UIView {
     public override func intrinsicContentSize() -> CGSize {
         super.intrinsicContentSize()
         let height: CGFloat = rowContainerViews.flatMap({ view in view.height}).reduce(0, combine: {$0 + $1}) + CGFloat(rowContainerViews.count - 1) * rowSpacing
-        return CGSize(width: self.width, height: height)
-        
+        return CGSize(width: self.width, height: height + (edgeInset.top + edgeInset.bottom))
     }
-
-    
 }
