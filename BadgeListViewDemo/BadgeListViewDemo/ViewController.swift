@@ -35,6 +35,10 @@ class ViewController: UIViewController {
         
         let tag1 = Tag(name: "交互设计", color: "green")
         let tag2 = Tag(name: "iOS", color: "red")
+        let tag3 = Tag(name: "Design", color: "yellow")
+        let tag4 = Tag(name: "Design", color: "gray")
+        let tag5 = Tag(name: "Design", color: "purple")
+        let tag6 = Tag(name: "Design", color: "red")
         
         let tag1Badge: TagBadgeView = TagBadgeView(frame: CGRect.zero)
         tag1Badge.heyTag = tag1
@@ -43,6 +47,22 @@ class ViewController: UIViewController {
         let tag2Badge: TagBadgeView = TagBadgeView(frame: CGRect.zero)
         tag2Badge.heyTag = tag2
         tag2Badge.sizeToFit()
+        
+        let tag3Badge: TagBadgeView = TagBadgeView(frame: CGRect.zero)
+        tag3Badge.heyTag = tag3
+        tag3Badge.sizeToFit()
+        
+        let tag4Badge: TagBadgeView = TagBadgeView(frame: CGRect.zero)
+        tag4Badge.heyTag = tag4
+        tag4Badge.sizeToFit()
+        
+        let tag5Badge: TagBadgeView = TagBadgeView(frame: CGRect.zero)
+        tag5Badge.heyTag = tag5
+        tag5Badge.sizeToFit()
+        
+        let tag6Badge: TagBadgeView = TagBadgeView(frame: CGRect.zero)
+        tag6Badge.heyTag = tag6
+        tag6Badge.sizeToFit()
         
         let cbadge: BadgeView = BadgeView(frame: CGRectZero)
         cbadge.image = UIImage(named: "subtask_icon")
@@ -54,9 +74,12 @@ class ViewController: UIViewController {
         view.addSubview(badgeListView)
         badgeListView.addBadge(badge)
         badgeListView.addBadge(cbadge)
-//        badgeListView.addBadge(bbadge)
         badgeListView.addBadge(tag1Badge)
         badgeListView.addBadge(tag2Badge)
+        badgeListView.addBadge(tag3Badge)
+        badgeListView.addBadge(tag4Badge)
+        badgeListView.addBadge(tag5Badge)
+        badgeListView.addBadge(tag6Badge)
         badgeListView.layer.borderWidth = 1.0
         badgeListView.layer.borderColor = UIColor.grayColor().CGColor
     }

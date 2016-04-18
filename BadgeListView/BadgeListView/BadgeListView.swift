@@ -39,9 +39,9 @@ public class BadgeListView: UIView {
             currentRow += 1
             currentRowWidth = badge.width
             currentRowContainerView = UIView()
-            let originYOfCurrentRowContainerView = rowContainerViews.flatMap({ view in view.height}).reduce(0, combine: {$0 + $1})
+            let originYOfCurrentRowContainerView = rowContainerViews.flatMap({ view in view.height}).reduce(0, combine: {$0 + $1}) + rowSpacing * CGFloat(currentRow - 1)
             badge.frame.origin = CGPoint(x: 0, y: 0)
-            currentRowContainerView.frame = CGRect(x: edgeInset.left, y: originYOfCurrentRowContainerView + (currentRow == 1 ? edgeInset.top : rowSpacing + edgeInset.top), width: currentRowWidth - (edgeInset.left + edgeInset.right), height: badge.height)
+            currentRowContainerView.frame = CGRect(x: edgeInset.left, y: originYOfCurrentRowContainerView + edgeInset.top, width: currentRowWidth - (edgeInset.left + edgeInset.right), height: badge.height)
             currentRowContainerView.addSubview(badge)
             rowContainerViews.append(currentRowContainerView)
             addSubview(currentRowContainerView)
