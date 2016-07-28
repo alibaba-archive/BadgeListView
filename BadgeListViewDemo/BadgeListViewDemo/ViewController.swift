@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         badgeListView.edgeInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let badge: BadgeView = BadgeView(frame: CGRectZero)
+        let badge: BadgeView = BadgeView(frame: CGRectZero, maxWidth: 170)
         badge.imageTrailingSpacing = 0
         badge.titleTrailingSpacing = 10
         badge.image = UIImage(named: "dueDate_icon")
@@ -25,15 +25,15 @@ class ViewController: UIViewController {
         badge.textColor = UIColor.whiteColor()
         badge.sizeToFit()
         
-//        let bbadge: BadgeView = BadgeView(frame: CGRectZero)
-//        bbadge.image = UIImage(named: "tag_icon")
-//        bbadge.backgroundImage = UIImage(named: "tag_background")
-//        bbadge.text = "交互设计"
-//        bbadge.textColor = UIColor.grayColor()
-//        bbadge.imageWidth = 5.0
-//        bbadge.sizeToFit()
+        let bbadge: BadgeView = BadgeView(frame: CGRectZero)
+        bbadge.image = UIImage(named: "tag_icon")
+        bbadge.backgroundImage = UIImage(named: "tag_background")
+        bbadge.text = "交互设计"
+        bbadge.textColor = UIColor.grayColor()
+        bbadge.imageWidth = 5.0
+        bbadge.sizeToFit()
         
-        let tag1 = Tag(name: "交互设计", color: "green")
+        let tag1 = Tag(name: "交互设计11111111111111111111111111111111111111111", color: "green")
         let tag2 = Tag(name: "iOS", color: "red")
         let tag3 = Tag(name: "Design", color: "yellow")
         let tag4 = Tag(name: "Design", color: "gray")

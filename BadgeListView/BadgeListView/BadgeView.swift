@@ -18,6 +18,7 @@ public class BadgeView: UIView {
     public var titleBottomSpacing: CGFloat = 2
     public var imageLeadingSpacing: CGFloat = 5
     public var imageTrailingSpacing: CGFloat = 5
+    public var maxWidth: CGFloat = 0
     
     public var textFont: UIFont = UIFont.systemFontOfSize(12.0) {
         didSet {
@@ -67,6 +68,11 @@ public class BadgeView: UIView {
         label.numberOfLines = 1
         return label
     }()
+
+    convenience public init(frame: CGRect, maxWidth: CGFloat) {
+        self.init(frame: frame)
+        self.maxWidth = maxWidth
+    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -105,17 +111,24 @@ public class BadgeView: UIView {
         if let _ = image {
             size.width += imageLeadingSpacing + imageWidth + imageTrailingSpacing
         }
-        
+        if size.width > maxWidth && maxWidth != 0 {
+            size.width = maxWidth
+        }
         return size
     }
     
     func resizeTitleLabel() {
+        var titleLabelMaxWidth = maxWidth
         if let _ = image {
             titleLabel.frame = CGRect(x: imageLeadingSpacing + imageWidth + imageTrailingSpacing + titleLeadingSpacing, y: titleTopSpacing, width: 0, height: 0)
+            titleLabelMaxWidth -= imageLeadingSpacing + imageWidth + imageTrailingSpacing + titleLeadingSpacing
         } else {
             titleLabel.frame = CGRect(x: titleLeadingSpacing, y: titleTopSpacing, width: 0, height: 0)
         }
         titleLabel.sizeToFit()
+        if titleLabel.width > titleLabelMaxWidth && maxWidth != 0 {
+            titleLabel.frame.size.width = titleLabelMaxWidth
+        }
     }
     
     func resizeBackgroundImageView() {

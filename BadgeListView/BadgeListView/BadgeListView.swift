@@ -33,6 +33,10 @@ public class BadgeListView: UIView {
     
     public func addBadge(badge: BadgeView) {
         badgeViews.append(badge)
+        let maxWidth = self.width - (edgeInset.left + edgeInset.right)
+        if badge.width > maxWidth {
+            badge.frame.size.width = maxWidth
+        }
         
         var currentRowContainerView: UIView!
         if currentRow == 0 || currentRowWidth + badge.width + badgeSpacing > frame.width {
