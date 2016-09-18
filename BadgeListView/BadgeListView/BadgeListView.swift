@@ -8,16 +8,16 @@
 
 import UIKit
 
-public class BadgeListView: UIView {
+open class BadgeListView: UIView {
     
-    private var rowContainerViews: [UIView] = []
-    private var badgeViews: [BadgeView] = []
-    private var currentRow: Int = 0
-    private var currentRowWidth: CGFloat = 0
+    fileprivate var rowContainerViews: [UIView] = []
+    fileprivate var badgeViews: [BadgeView] = []
+    fileprivate var currentRow: Int = 0
+    fileprivate var currentRowWidth: CGFloat = 0
     
-    public var badgeSpacing: CGFloat = 5.0
-    public var rowSpacing: CGFloat = 5.0
-    public var edgeInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    open var badgeSpacing: CGFloat = 5.0
+    open var rowSpacing: CGFloat = 5.0
+    open var edgeInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,11 +27,11 @@ public class BadgeListView: UIView {
         super.init(coder: aDecoder)
     }
     
-    public override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    public func addBadge(badge: BadgeView) {
+    open func addBadge(_ badge: BadgeView) {
         badgeViews.append(badge)
         let maxWidth = self.width - (edgeInset.left + edgeInset.right)
         if badge.width > maxWidth {
@@ -43,7 +43,7 @@ public class BadgeListView: UIView {
             currentRow += 1
             currentRowWidth = badge.width
             currentRowContainerView = UIView()
-            let originYOfCurrentRowContainerView = rowContainerViews.flatMap({ view in view.height}).reduce(0, combine: {$0 + $1}) + rowSpacing * CGFloat(currentRow - 1)
+            let originYOfCurrentRowContainerView = rowContainerViews.flatMap({ view in view.height}).reduce(0, {$0 + $1}) + rowSpacing * CGFloat(currentRow - 1)
             badge.frame.origin = CGPoint(x: 0, y: 0)
             currentRowContainerView.frame = CGRect(x: edgeInset.left, y: originYOfCurrentRowContainerView + edgeInset.top, width: currentRowWidth - (edgeInset.left + edgeInset.right), height: badge.height)
             currentRowContainerView.addSubview(badge)
@@ -57,10 +57,10 @@ public class BadgeListView: UIView {
             currentRowContainerView.frame.size.height = max(currentRowContainerView.height, badge.height)
             currentRowContainerView.addSubview(badge)
         }
-        self.frame.size = intrinsicContentSize()
+        self.frame.size = intrinsicContentSize
     }
     
-    public func removeAllBadges() {
+    open func removeAllBadges() {
         badgeViews.forEach { (badgeView) -> () in
             badgeView.removeFromSuperview()
         }
@@ -71,12 +71,11 @@ public class BadgeListView: UIView {
         rowContainerViews.removeAll()
         currentRow = 0
         currentRowWidth = 0.0
-        self.frame.size = intrinsicContentSize()
+        self.frame.size = intrinsicContentSize
     }
     
-    public override func intrinsicContentSize() -> CGSize {
-        super.intrinsicContentSize()
-        let height: CGFloat = rowContainerViews.flatMap({ view in view.height}).reduce(0, combine: {$0 + $1}) + CGFloat(rowContainerViews.count - 1) * rowSpacing
+    open override var intrinsicContentSize : CGSize {
+        let height: CGFloat = rowContainerViews.flatMap({ view in view.height}).reduce(0, {$0 + $1}) + CGFloat(rowContainerViews.count - 1) * rowSpacing
         return CGSize(width: self.width, height: height + (edgeInset.top + edgeInset.bottom))
     }
 }

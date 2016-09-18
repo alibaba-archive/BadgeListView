@@ -16,20 +16,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         badgeListView.edgeInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let badge: BadgeView = BadgeView(frame: CGRectZero, maxWidth: 170)
+        let badge: BadgeView = BadgeView(frame: CGRect.zero, maxWidth: 170)
         badge.imageTrailingSpacing = 0
         badge.titleTrailingSpacing = 10
         badge.image = UIImage(named: "dueDate_icon")
         badge.backgroundImage = UIImage(named: "dueDate_background")
         badge.text = "16 Oct"
-        badge.textColor = UIColor.whiteColor()
+        badge.textColor = UIColor.white
         badge.sizeToFit()
         
-        let bbadge: BadgeView = BadgeView(frame: CGRectZero)
+        let bbadge: BadgeView = BadgeView(frame: CGRect.zero)
         bbadge.image = UIImage(named: "tag_icon")
         bbadge.backgroundImage = UIImage(named: "tag_background")
         bbadge.text = "交互设计"
-        bbadge.textColor = UIColor.grayColor()
+        bbadge.textColor = UIColor.gray
         bbadge.imageWidth = 5.0
         bbadge.sizeToFit()
         
@@ -64,11 +64,11 @@ class ViewController: UIViewController {
         tag6Badge.heyTag = tag6
         tag6Badge.sizeToFit()
         
-        let cbadge: BadgeView = BadgeView(frame: CGRectZero)
+        let cbadge: BadgeView = BadgeView(frame: CGRect.zero)
         cbadge.image = UIImage(named: "subtask_icon")
         cbadge.imageWidth = 12.0
         cbadge.text = "2/15"
-        cbadge.textColor = UIColor.grayColor()
+        cbadge.textColor = UIColor.gray
         cbadge.sizeToFit()
         
         view.addSubview(badgeListView)
@@ -81,10 +81,10 @@ class ViewController: UIViewController {
         badgeListView.addBadge(tag5Badge)
         badgeListView.addBadge(tag6Badge)
         badgeListView.layer.borderWidth = 1.0
-        badgeListView.layer.borderColor = UIColor.grayColor().CGColor
+        badgeListView.layer.borderColor = UIColor.gray.cgColor
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
 
