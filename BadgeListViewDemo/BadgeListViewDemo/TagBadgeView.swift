@@ -26,7 +26,7 @@ class TagBadgeView: BadgeView {
     func setupProperty() {
         imageWidth = 5.0
         imageTrailingSpacing = 0
-        textFont = UIFont.systemFontOfSize(12.0)
+        textFont = UIFont.systemFont(ofSize: 12.0)
         textColor = UIColor(red: 166/255.0, green: 166/255.0, blue: 166/255.0, alpha: 1.0)
 //        backgroundImage = UIImage(named: "tag_background")
     }
@@ -42,20 +42,20 @@ class TagBadgeView: BadgeView {
 }
 
 extension TagBadgeView {
-    private func setTagBackgroundImage() {
+    fileprivate func setTagBackgroundImage() {
         let color = UIColor(red: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1.0)
         let rect = CGRect(origin: CGPoint.zero, size: bounds.size)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         let bezierPath = UIBezierPath(roundedRect: rect, cornerRadius: rect.size.height/2)
-        CGContextSetFillColorWithColor(context, color.CGColor)
+        context?.setFillColor(color.cgColor)
         bezierPath.fill()
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         backgroundImage = image
     }
     
-    private func imageFromTagColor(colorString: String) -> UIImage {
+    fileprivate func imageFromTagColor(_ colorString: String) -> UIImage {
         switch colorString {
         case "red" :
             return UIImage(named: "tag_icon")!

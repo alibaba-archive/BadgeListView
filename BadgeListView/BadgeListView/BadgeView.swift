@@ -8,62 +8,62 @@
 
 import UIKit
 
-public class BadgeView: UIView {
+open class BadgeView: UIView {
     
-    public var imageWidth: CGFloat = 10.0
+    open var imageWidth: CGFloat = 10.0
     
-    public var titleLeadingSpacing: CGFloat = 5
-    public var titleTrailingSpacing: CGFloat = 5
-    public var titleTopSpacing: CGFloat = 2
-    public var titleBottomSpacing: CGFloat = 2
-    public var imageLeadingSpacing: CGFloat = 5
-    public var imageTrailingSpacing: CGFloat = 5
-    public var maxWidth: CGFloat = 0
+    open var titleLeadingSpacing: CGFloat = 5
+    open var titleTrailingSpacing: CGFloat = 5
+    open var titleTopSpacing: CGFloat = 2
+    open var titleBottomSpacing: CGFloat = 2
+    open var imageLeadingSpacing: CGFloat = 5
+    open var imageTrailingSpacing: CGFloat = 5
+    open var maxWidth: CGFloat = 0
     
-    public var textFont: UIFont = UIFont.systemFontOfSize(12.0) {
+    open var textFont: UIFont = UIFont.systemFont(ofSize: 12.0) {
         didSet {
             titleLabel.font = textFont
         }
     }
     
-    public var textColor: UIColor = UIColor.blackColor() {
+    open var textColor: UIColor = UIColor.black {
         didSet {
             titleLabel.textColor = textColor
         }
     }
     
-    public var text: String? {
+    open var text: String? {
         didSet {
             titleLabel.text = text
         }
     }
     
-    public var image: UIImage? {
+    open var image: UIImage? {
         didSet {
             imageView.image = image
         }
     }
     
-    public var backgroundImage: UIImage? {
+    open var backgroundImage: UIImage? {
         didSet {
             backgroundImageView.image = backgroundImage
         }
     }
     
-    private lazy var imageView: UIImageView = {
-        let imageView: UIImageView = UIImageView(frame: CGRectZero)
-        imageView.contentMode = .ScaleAspectFit
+    fileprivate lazy var imageView: UIImageView = {
+        let imageView: UIImageView = UIImageView(frame: CGRect.zero)
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private lazy var backgroundImageView: UIImageView = {
+    fileprivate lazy var backgroundImageView: UIImageView = {
         let imageView: UIImageView = UIImageView(frame: self.bounds)
         return imageView
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let label: UILabel = UILabel(frame: CGRectZero)
-        label.textAlignment = .Left
+    fileprivate lazy var titleLabel: UILabel = {
+        let label: UILabel = UILabel(frame: CGRect.zero)
+        label.textAlignment = .left
         label.font = self.textFont
         label.numberOfLines = 1
         return label
@@ -84,27 +84,27 @@ public class BadgeView: UIView {
         commonInit()
     }
     
-    public override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
         commonInit()
     }
     
-    private func commonInit() {
-        self.backgroundColor = UIColor.clearColor()
+    fileprivate func commonInit() {
+        self.backgroundColor = UIColor.clear
         addSubview(backgroundImageView)
         addSubview(imageView)
         addSubview(titleLabel)
-        self.frame.size = intrinsicContentSize()
+        self.frame.size = intrinsicContentSize
     }
 
-    override public func intrinsicContentSize() -> CGSize {
-        var size = titleLabel.text?.sizeWithAttributes([NSFontAttributeName: textFont]) ?? CGSize.zero
+    override open var intrinsicContentSize : CGSize {
+        var size = titleLabel.text?.size(attributes: [NSFontAttributeName: textFont]) ?? CGSize.zero
         size = CGSize(width: round(size.width), height: round(size.height))
         
-        if !CGSizeEqualToSize(size, CGSize.zero) {
+        if !size.equalTo(CGSize.zero) {
             size.width += titleLeadingSpacing + titleTrailingSpacing
         } else {
-            let height = round("t".sizeWithAttributes([NSFontAttributeName: textFont]).height)
+            let height = round("t".size(attributes: [NSFontAttributeName: textFont]).height)
             size.height += height
         }
         size.height += titleTopSpacing + titleBottomSpacing
@@ -144,9 +144,9 @@ public class BadgeView: UIView {
         }
     }
     
-    public override func sizeToFit() {
+    open override func sizeToFit() {
         super.sizeToFit()
-        self.frame.size = intrinsicContentSize()
+        self.frame.size = intrinsicContentSize
         resizeTitleLabel()
         resizeImageView()
         resizeBackgroundImageView()
