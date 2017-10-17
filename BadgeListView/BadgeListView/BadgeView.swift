@@ -98,13 +98,13 @@ open class BadgeView: UIView {
     }
 
     override open var intrinsicContentSize : CGSize {
-        var size = titleLabel.text?.size(attributes: [NSFontAttributeName: textFont]) ?? CGSize.zero
+        var size = titleLabel.text?.size(withAttributes: [.font: textFont]) ?? CGSize.zero
         size = CGSize(width: round(size.width), height: round(size.height))
         
         if !size.equalTo(CGSize.zero) {
             size.width += titleLeadingSpacing + titleTrailingSpacing
         } else {
-            let height = round("t".size(attributes: [NSFontAttributeName: textFont]).height)
+            let height = round("t".size(withAttributes: [.font: textFont]).height)
             size.height += height
         }
         size.height += titleTopSpacing + titleBottomSpacing
