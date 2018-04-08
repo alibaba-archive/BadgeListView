@@ -43,7 +43,7 @@ open class BadgeListView: UIView {
             currentRow += 1
             currentRowWidth = badge.width
             currentRowContainerView = UIView()
-            let originYOfCurrentRowContainerView = rowContainerViews.flatMap({ view in view.height}).reduce(0, {$0 + $1}) + rowSpacing * CGFloat(currentRow - 1)
+            let originYOfCurrentRowContainerView = rowContainerViews.compactMap({ view in view.height}).reduce(0, {$0 + $1}) + rowSpacing * CGFloat(currentRow - 1)
             badge.frame.origin = CGPoint(x: 0, y: 0)
             currentRowContainerView.frame = CGRect(x: edgeInset.left, y: originYOfCurrentRowContainerView + edgeInset.top, width: currentRowWidth - (edgeInset.left + edgeInset.right), height: badge.height)
             currentRowContainerView.addSubview(badge)
@@ -75,7 +75,7 @@ open class BadgeListView: UIView {
     }
     
     open override var intrinsicContentSize : CGSize {
-        let height: CGFloat = rowContainerViews.flatMap({ view in view.height}).reduce(0, {$0 + $1}) + CGFloat(rowContainerViews.count - 1) * rowSpacing
+        let height: CGFloat = rowContainerViews.compactMap({ view in view.height}).reduce(0, {$0 + $1}) + CGFloat(rowContainerViews.count - 1) * rowSpacing
         return CGSize(width: self.width, height: height + (edgeInset.top + edgeInset.bottom))
     }
 }
