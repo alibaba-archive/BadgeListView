@@ -133,7 +133,7 @@
 			};
 			buildConfigurationList = EB0E622C1C2923C5006F08D3 /* Build configuration list for PBXProject "BadgeListViewDemo" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -307,7 +307,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.StormXX.BadgeListViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -321,7 +321,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.StormXX.BadgeListViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
