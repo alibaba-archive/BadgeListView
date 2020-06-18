@@ -39,6 +39,7 @@
 			isa = PBXGroup;
 			children = (
 				EB0E621F1C2923B2006F08D3 /* BadgeListView */,
+				EB0E62221C2923B2006F08D3 /* Info.plist */,
 				EB0E621E1C2923B2006F08D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,22 +55,13 @@
 		EB0E621F1C2923B2006F08D3 /* BadgeListView */ = {
 			isa = PBXGroup;
 			children = (
-				EB9B046B1C29293E00DD3B85 /* Extensions */,
+				EB9B04691C29293A00DD3B85 /* UIViewExtension.swift */,
 				EB0E62201C2923B2006F08D3 /* BadgeListView.h */,
 				EB9B04671C29249600DD3B85 /* BadgeView.swift */,
 				EB9B04701C29413400DD3B85 /* BadgeListView.swift */,
 				EBBD6C741C9D24D80021D061 /* TagBadgeView.swift */,
-				EB0E62221C2923B2006F08D3 /* Info.plist */,
 			);
 			path = BadgeListView;
-			sourceTree = "<group>";
-		};
-		EB9B046B1C29293E00DD3B85 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				EB9B04691C29293A00DD3B85 /* UIViewExtension.swift */,
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +275,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = BadgeListView/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -304,7 +296,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = BadgeListView/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
