@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "TBBadgeListView"
-  spec.version      = "2.4.0"
+  spec.version      = "2.5.0"
   spec.summary      = "TBBadgeListView is a custom badge list view."
 
   spec.homepage     = "https://github.com/teambition/BadgeListView"
